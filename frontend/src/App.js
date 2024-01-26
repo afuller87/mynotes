@@ -1,23 +1,23 @@
-import {
-  BrowserRouter as Router,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 import Header from './components/Header';
 import NotesListPage from './pages/NotesListPage';
-import NotePage from "./pages/NotePage";
+import NotePage from './pages/NotePage';
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="container dark">
         <Header />
-        <Route path="/" exact component={NotesListPage} />
-        <Route path="note/:id"  component={NotesListPage} />
+        <Routes>
+          <Route path="/" element={<NotesListPage />} /> 
+          <Route path="/note/:id" element={<NotePage />} />
+        </Routes>
       </div>
     </Router>
   );
 }
 
 export default App;
+
